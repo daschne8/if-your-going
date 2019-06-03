@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
 
-  get '/signup', to: 'occupants#new'
-  post '/signup', to: 'occupants#create'
+  # get '/signup', to: 'occupants#new'
+  # post '/signup', to: 'occupants#create'
 
-  root 'occupants#index'
+  root 'sessions#login'
 
 end
