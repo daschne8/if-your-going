@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :establishments
   resources :occupants
 
-  get '/login', to: 'sessions#login'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+
+  get '/signup', to: 'occupants#new'
+  post '/signup', to: 'occupants#create'
 
   root 'occupants#index'
 

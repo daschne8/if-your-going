@@ -1,32 +1,24 @@
 class SessionsController < ApplicationController
 
+  def new
+    @occupant = Occupant.new
+    render :login
+  end
+
   def create
-    user = User.new(
-      name: params[:name],
-      password: params[:password]
-      password_confirmation: params[:password_confirmation]
-    )
-    if user.save
-      session[:user_id] = user.id
-      flash[:success] = "Successfully created User!"
-      redirect_to root
+    occupant = Occupant.find_by(name: params[:occupant][:name])
+    if occupant && occupant.authenticate(params[:occupant][:password])
+      flash[:success] = "Succesfully Logged In"
+      session[:occupant_id] = occupant.id
+      redirect_to occupant_path(occupant)
     else
-      flash[:warning] = "Invalid name or password"
-      redirect_to root
+      flash[:warning] = "Invalid username/password"
+      return redirect_to login_path
     end
   end
 
-  def login
-    user = User.find_by(name: params[:occupant][:name])
-    user = user.try(:authenticate, params[:occupant][:password])
-    return redirect_to(controller: 'sessions', action: 'new') unless user
-    session[:user_id] = user.id
-    @user = user
-    redirect_to root
-  end
-
   def destroy
-    session.delete :user_id
+    session.delete :occupant_id
     redirect_to root
   end
 

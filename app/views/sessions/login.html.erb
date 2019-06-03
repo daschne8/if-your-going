@@ -1,0 +1,11 @@
+<%= form_for @occupant, url: login_path, method: :post do |f| %>
+ <%= f.label :name %>
+ <%= f.text_field :name %><br>
+
+ <%= f.label :password %>
+ <%= f.password_field :password %><br>
+
+ <%= f.submit "Login"%>
+<% end %>
+
+<%= link_to "Sign up", signup_url %>
