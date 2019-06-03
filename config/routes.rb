@@ -7,10 +7,8 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
+  post '/logout', to: 'sessions#destroy'
 
-  # get '/signup', to: 'occupants#new'
-  # post '/signup', to: 'occupants#create'
-
-  root 'sessions#login'
+  root 'sessions#new'
 
 end

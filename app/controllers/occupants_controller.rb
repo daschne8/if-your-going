@@ -11,6 +11,8 @@ class OccupantsController < ApplicationController
 
   def show
     @occupant = current_occupant
+    @establishments = @occupant.establishments
+    @needed_goods = @establishments.collect{|est| est.occupants.collect{|occ| occ.goods}.flatten}.flatten.uniq
   end
 
   def create

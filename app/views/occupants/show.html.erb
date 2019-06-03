@@ -1,1 +1,8 @@
 <h1><%=@occupant.name%></h1>
+
+<h2>Associated Establishments</h2>
+<% @establishments.each do |est|%>
+  <%= est.name %><br>
+<% end %>
+
+<h2>Goods Needed</h2>

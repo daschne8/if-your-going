@@ -19,5 +19,9 @@
     </div>
 
     <%= yield %>
+
+    <% if logged_in? %>
+      <%= link_to('Logout', logout_url, method: :post) %>
+    <% end %>
   </body>
 </html>
