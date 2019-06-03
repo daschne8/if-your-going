@@ -1,4 +1,5 @@
 module ApplicationHelper
+  
   def current_occupant
     @occupant = (Occupant.find_by(id: session[:occupant_id]) || Occupant.new)
   end
