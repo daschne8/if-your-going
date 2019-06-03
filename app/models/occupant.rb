@@ -5,7 +5,8 @@ class Occupant < ApplicationRecord
   has_many :occupant_goods
   has_many :goods, through: :occupant_goods
 
-
-
   has_secure_password
+
+  validates :name, presence: true
+  
 end
