@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   resources :shops
   resources :establishments
-  resources :occupants
+  resources :occupants, only: [:new, :create]
 
+  get '/occupants/show', to: 'occupants#show'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'

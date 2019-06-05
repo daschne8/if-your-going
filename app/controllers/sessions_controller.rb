@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if occupant && occupant.authenticate(params[:occupant][:password])
       flash[:success] = "Succesfully Logged In"
       session[:occupant_id] = occupant.id
-      redirect_to occupant_path(occupant)
+      redirect_to occupants_show_path
     else
       flash[:warning] = "Invalid username/password"
       return redirect_to login_path

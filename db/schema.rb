@@ -10,25 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_205223) do
-
-  create_table "create_establishment_goods", force: :cascade do |t|
-    t.integer "establishment_id"
-    t.integer "good_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["establishment_id"], name: "index_create_establishment_goods_on_establishment_id"
-    t.index ["good_id"], name: "index_create_establishment_goods_on_good_id"
-  end
-
-  create_table "establishment_occupants", force: :cascade do |t|
-    t.integer "establishment_id"
-    t.integer "occupant_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["establishment_id"], name: "index_establishment_occupants_on_establishment_id"
-    t.index ["occupant_id"], name: "index_establishment_occupants_on_occupant_id"
-  end
+ActiveRecord::Schema.define(version: 2019_05_30_185500) do
 
   create_table "establishments", force: :cascade do |t|
     t.string "name"
@@ -47,18 +29,10 @@ ActiveRecord::Schema.define(version: 2019_06_03_205223) do
 
   create_table "goods", force: :cascade do |t|
     t.string "name"
+    t.integer "occupant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "description", default: ""
-  end
-
-  create_table "occupant_goods", force: :cascade do |t|
-    t.integer "occupant_id"
-    t.integer "good_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["good_id"], name: "index_occupant_goods_on_good_id"
-    t.index ["occupant_id"], name: "index_occupant_goods_on_occupant_id"
   end
 
   create_table "occupants", force: :cascade do |t|
