@@ -1,6 +1,6 @@
 <h2>We Need:</h2>
 
 <% @establishment.goods.each do |good|%>
-    <%= good.name %> - <%= good.occupant.name %> <%= link_to "Delete", good, method: :delete %>
-  
+    <%= good.name %> - <%= good.occupant.name %>
+    <%= link_to "Delete", good, method: :delete %><br>
 <% end %>

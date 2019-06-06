@@ -1,6 +1,12 @@
+<h2>Add to List</h2>
 <%= form_for @good do |f| %>
-  <%= f.hidden_field :user_id, value: @occupant.id%>
+  <%= f.hidden_field :occupant_id, value: @occupant.id%>
   <%= f.text_field :name, placeholder: "new item" %><br>
-  <%= f.text_area :description, placeholder: "add any necessary instructions here" %>
+  <%= f.text_area :description, placeholder: "add any necessary instructions here" %><br>
+  <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+  <h3>Enter new tag:</h3>
+  <%= f.fields_for :tags, @good.tags.build do |tags_fields| %>
+    <%= tags_fields.text_field :name %>
+  <% end %>
   <%= f.submit %>
 <% end %>
