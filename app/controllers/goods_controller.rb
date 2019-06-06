@@ -5,7 +5,8 @@ class GoodsController < ApplicationController
     good = Good.create(name: good_params[:name], description: good_params[:description])
     good.occupant = occupant
     good.save
-    redirect_to establishment_occupant_path(occupant.establishment,occupant)
+    redirect_back(fallback_location: establishment_occupant_path(occupant.establishment,occupant))
+    #redirect_to establishment_occupant_path(occupant.establishment,occupant)
   end
 
   private
