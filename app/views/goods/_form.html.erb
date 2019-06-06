@@ -1,0 +1,5 @@
+<%= form_for @good do |f| %>
+  <%= f.hidden_field :user_id, value: @occupant.id%>
+  <%= f.text_field :name, placeholder: "new item" %>
+  <%= f.submit %>
+<% end %>

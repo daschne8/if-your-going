@@ -1,0 +1,13 @@
+<h1><%= @establishment.name %></h1>
+
+<h2>We Need</h2>
+<% @establishment.goods.each do |good| %>
+  <%= good.name %> - <%= good.occupant.name %><br>
+<% end %><br>
+
+<h2>Occupants</h2>
+<% @establishment.occupants.each do |occ| %>
+  <%= occ.name %><br>
+<% end %>
+
+<%= render 'goods/form' %>
