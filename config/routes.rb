@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :shops
-  resources :goods, only: [:create]
+  resources :goods, only: [:create,:destroy]
   resources :establishments, only: [:show] do
     resources :occupants, only: [:show]
   end

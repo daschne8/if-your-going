@@ -9,6 +9,12 @@ class GoodsController < ApplicationController
     #redirect_to establishment_occupant_path(occupant.establishment,occupant)
   end
 
+  def destroy
+    occupant = current_occupant
+    Good.find_by(id: params[:id]).destroy
+    redirect_back(fallback_location: establishment_occupant_path(occupant.establishment,occupant))
+  end
+
   private
 
   def good_params

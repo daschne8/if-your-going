@@ -10,7 +10,6 @@ class OccupantsController < ApplicationController
     is_current_occupant?
     @occupant = Occupant.find_by(id: params[:id])
     @establishment = @occupant.establishment
-    @posted_goods = @occupant.goods
     @good = Good.new
   end
 

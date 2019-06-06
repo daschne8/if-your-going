@@ -1,12 +1,10 @@
 <h1><%=@occupant.name%></h1>
 
-<h2>We Need:</h2>
-<% @establishment.goods.uniq.each do |good|%>
+<%= render 'goods/needed_goods' %>
+
+<h2>You Need</h2>
+<% @occupant.goods.each do |good| %>
   <%= good.name %><br>
 <% end %>
 
-<h2>You Need</h2>
-<% @posted_goods.uniq.each do |good| %>
-  <%= good.name %><br>
-<% end %>
 <%= render 'goods/form' %>
