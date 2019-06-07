@@ -1,0 +1,21 @@
+<h1>Admin Control Panel</h1>
+
+<h2>Establishments</h2>
+<% @establishments.each do |est|%>
+  <%= est.name %>
+<% end %>
+
+<h2>Occupants</h2>
+<% @occupants.each do |occ|%>
+  <%=occ.name %>
+<% end %>
+
+<h2>Goods</h2>
+<% @goods.each do |good|%>
+  <%= good.name %>
+<% end %>
+
+<h2>Tags</h2>
+<% @tags.each do |tag|%>
+  <%= tag.name %>
+<% end %>

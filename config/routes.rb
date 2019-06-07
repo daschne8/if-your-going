@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   end
   resources :occupants, only: [:new, :create]
 
-  #get '/occupants/show', to: 'occupants#show'
+  scope '/admin', module: 'admin' do
+    resources :displays, only: [:index]
+  end
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'

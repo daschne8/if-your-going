@@ -1,5 +1,5 @@
 <h1><%= @establishment.name %></h1>
-
+<%= render 'tags/filter' %>
 <h2>Occupants</h2>
 <% @establishment.occupants.each do |occ| %>
   <%= occ.name %><br>

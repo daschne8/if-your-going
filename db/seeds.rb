@@ -5,6 +5,7 @@ daniel = Occupant.find_or_create_by(name: "Daniel")
 daniel.password = "password"
 mary = Occupant.find_or_create_by(name: "Mary")
 mary.password = "password"
+admin = Occupant.create(name: "admin", password: "password", password_confirmation: "password", admin: true)
 
 
 
@@ -28,7 +29,7 @@ home_depot = Shop.find_or_create_by(name: "Home Depot")
 martins = Shop.find_or_create_by(name: "Martins")
 
 
-house.occupants << [daniel, mary]
+house.occupants << [daniel, mary, admin]
 
 daniel.goods << [diapers, formula, peach_tree, pants]
 mary.goods << [bread, rags, opener]

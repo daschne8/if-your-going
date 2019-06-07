@@ -8,9 +8,17 @@ class OccupantsController < ApplicationController
 
   def show
     is_current_occupant?
+    @tags = Tag.all
     @occupant = Occupant.find_by(id: params[:id])
     @establishment = @occupant.establishment
     @good = Good.new
+    if !params[:tag].blank?
+      tag = Tag.find_by(id: params[:tag])
+      @goods = tag.goods
+      @filter = "Filtered by tag, #{tag.name}"
+    else
+      @goods = Good.all
+    end
   end
 
   def create

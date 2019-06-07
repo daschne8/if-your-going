@@ -1,1 +1,5 @@
-<%= f.select :tag_ids, options_for_select(Tag.all.pluck(:name))%>
+<% path = request.path %>
+<%= form_tag(path,method: "get") do %>
+  <%= select_tag "tag", options_from_collection_for_select(@tags,"id","name"),include_blank: true %>
+  <%= submit_tag "Filter" %>
+<% end %>

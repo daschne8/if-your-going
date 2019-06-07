@@ -15,4 +15,8 @@ module ApplicationHelper
     return redirect_to establishment_path(current_occupant.establishment) unless current_occupant == Occupant.find_by(id: params[:id])
   end
 
+  def is_admin?
+    current_occupant.admin
+  end
+
 end
