@@ -3,19 +3,23 @@
 <h2>Establishments</h2>
 <% @establishments.each do |est|%>
   <%= est.name %>
+  <%= link_to "Delete", est, method: :delete %><br>
 <% end %>
 
 <h2>Occupants</h2>
 <% @occupants.each do |occ|%>
   <%=occ.name %>
+  <%= link_to "Delete", occ, method: :delete %><br>
 <% end %>
 
 <h2>Goods</h2>
 <% @goods.each do |good|%>
-  <%= good.name %>
+  <%= good.name %> - <%= good.occupant.name %>
+  <%= link_to "Delete", good, method: :delete %><br>
 <% end %>
 
 <h2>Tags</h2>
 <% @tags.each do |tag|%>
   <%= tag.name %>
+  <%= link_to "Delete", tag, method: :delete %><br>
 <% end %>

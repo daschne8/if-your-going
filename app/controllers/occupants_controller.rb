@@ -34,6 +34,15 @@ class OccupantsController < ApplicationController
     end
   end
 
+  def destroy
+    if is_admin?
+      occupant = Occupant.find_by(id: params[:id]).destroy
+    else
+      flash[:error] = "Unable to delete user"
+    end
+    redirect_back(fallback_location: displays_path)
+  end
+
   private
 
   def occupant_params

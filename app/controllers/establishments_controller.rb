@@ -21,10 +21,11 @@ class EstablishmentsController < ApplicationController
 
   def destroy
     if is_admin?
-
+      eastablishment = Establishment.find_by(id: params[:id]).destroy
     else
-      redirect_back()
+      flash[:error] = "Unable to delete Establishment"
     end
+    redirect_back(fallback_location: displays_path)
   end
 
 end

@@ -3,10 +3,12 @@ Rails.application.routes.draw do
 
   resources :shops
   resources :goods, only: [:create,:destroy]
+  resources :tags, only: [:destroy]
   resources :establishments, only: [:show] do
     resources :occupants, only: [:show]
   end
-  resources :occupants, only: [:new, :create]
+  resources :occupants, only: [:new, :create, :destroy]
+  resources :establishments, only: [:destroy]
 
   scope '/admin', module: 'admin' do
     resources :displays, only: [:index]
