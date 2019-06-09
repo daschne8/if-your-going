@@ -3,6 +3,7 @@
   <%=@filter%><br><br>
 <% end %>
 <% @goods.each do |good|%>
-    <%= good.name %> - <%= good.occupant.name %>
+    <%= link_to "#{good.name} - #{good.occupant.name}", establishment_good_path, method: :get %>
+    <%= link_to "Edit", edit_establishment_good_path, method: :get %>
     <%= link_to "Delete", good, method: :delete %><br>
 <% end %>

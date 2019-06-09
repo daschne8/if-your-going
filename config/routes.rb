@@ -2,13 +2,17 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :shops
-  resources :goods, only: [:create,:destroy]
+  resources :goods, only: [:create,:destroy,:update]
   resources :tags, only: [:destroy]
   resources :establishments, only: [:show] do
     resources :occupants, only: [:show]
   end
+  resources :establishments, only: [:show] do
+    resources :goods, only: [:show, :edit]
+  end
   resources :occupants, only: [:new, :create, :destroy]
   resources :establishments, only: [:destroy]
+
 
   scope '/admin', module: 'admin' do
     resources :displays, only: [:index]

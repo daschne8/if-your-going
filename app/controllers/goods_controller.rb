@@ -7,6 +7,25 @@ class GoodsController < ApplicationController
     redirect_back(fallback_location: establishment_occupant_path(occupant.establishment,occupant))
   end
 
+  def show
+    @good = Good.find_by(params[:id])
+    # @establishment = Establishment.find_by(params[:establishment_id])
+  end
+
+  def edit
+    @good = Good.find_by(params[:id])
+    @occupant = current_occupant
+  end
+
+  def update
+    good = Good.find_by(id: params[:id])
+    if good.update(good_params)
+      redirect_to establishment_good_path(good)
+    else
+      redirect_to edit_establishment_good_path(good)
+    end
+  end
+
   def destroy
     occupant = current_occupant
     Good.find_by(id: params[:id]).destroy

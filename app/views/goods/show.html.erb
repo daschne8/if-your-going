@@ -1,0 +1,8 @@
+<h1>Good:</h1>
+<h2><%=@good.name%></h2>
+<h2>Decription</h2>
+<%=@good.description%>
+<h2>Tags</h2>
+<% @good.tags.each do |tag|%>
+  <%=tag.name %>
+<% end %>
