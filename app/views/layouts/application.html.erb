@@ -10,15 +10,16 @@
   </head>
 
   <body>
+    <div class="nav_bar">
+      <%= render 'layouts/nav_bar' %>
+    </div>
     <div class="login_display">
       <% if logged_in? %>
         <p>Logged In</p>
         <p><%=current_occupant.name%></p>
       <% end %>
     </div>
-    <div class="nav_bar">
-      <%= render 'layouts/nav_bar' %>
-    </div>
+
     <div class="main_body">
 
       <div class="left_spacer"></div>
@@ -31,7 +32,7 @@
 
           <%= yield %>
 
-          
+
         </div>
       <div class="right_spacer"></div>
     </div>
