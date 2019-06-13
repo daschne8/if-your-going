@@ -12,13 +12,9 @@ class OccupantsController < ApplicationController
     @occupant = Occupant.find_by(id: params[:id])
     @establishment = @occupant.establishment
     @good = Good.new
-    if !params[:tag].blank?
-      tag = Tag.find_by(id: params[:tag])
-      @goods = tag.goods
-      @filter = "Filtered by tag, #{tag.name}"
-    else
-      @goods = Good.all
-    end
+    @goods = Good.find_by_tag(params[:tag])
+    tag = Tag.find_by(params[:tag]).name
+    @filter = "Filtered by, #{tag}"
   end
 
   def create

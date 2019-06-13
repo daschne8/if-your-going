@@ -9,15 +9,9 @@ class EstablishmentsController < ApplicationController
     @tags = Tag.all
     @good = Good.new
     @occupant = current_occupant
-    # if !params[:tag].blank?
-    #   tag = Tag.find_by(id: params[:tag])
-    #   @goods = tag.goods
-    #   @filter = "Filtered by tag, #{tag.name}"
-    # else
-    #   @goods = Good.all
-    # end
-    
-    @goods, @filter = Tag.find_tag(params[:tag])
+    @goods = Good.find_by_tag(params[:tag])
+    tag = Tag.find_by(params[:tag]).name
+    @filter = "Filtered by, #{tag}"
 
   end
 
