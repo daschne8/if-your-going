@@ -13,8 +13,7 @@ class OccupantsController < ApplicationController
     @establishment = @occupant.establishment
     @good = Good.new
     @goods = Good.find_by_tag(params[:tag])
-    tag = Tag.find_by(params[:tag]).name
-    @filter = "Filtered by, #{tag}"
+    @filter = filtered_by
   end
 
   def create

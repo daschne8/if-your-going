@@ -4,7 +4,9 @@
 
 <h2>You Need</h2>
 <% @occupant.goods.each do |good| %>
-  <%= good.name %><br>
+  <%= link_to "#{good.name} - #{good.occupant.name}", establishment_good_path(good.occupant.establishment,good), method: :get %>
+  <%= link_to "Edit", edit_establishment_good_path(good.occupant.establishment,good), method: :get %>
+  <%= link_to "Delete", good, method: :delete %><br>
 <% end %>
 
 <%= render 'goods/form' %>

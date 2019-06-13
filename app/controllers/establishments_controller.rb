@@ -10,8 +10,7 @@ class EstablishmentsController < ApplicationController
     @good = Good.new
     @occupant = current_occupant
     @goods = Good.find_by_tag(params[:tag])
-    tag = Tag.find_by(params[:tag]).name
-    @filter = "Filtered by, #{tag}"
+    @filter = filtered_by
 
   end
 
