@@ -8,7 +8,7 @@ class GoodsController < ApplicationController
   end
 
   def show
-    @good = Good.find_by(params[:id])
+    @good = Good.find_by(id: params[:id])
     # @establishment = Establishment.find_by(params[:establishment_id])
   end
 
