@@ -13,7 +13,7 @@ class GoodsController < ApplicationController
   end
 
   def edit
-    @good = Good.find_by(params[:id])
+    @good = Good.find_by(id: params[:id])
     @occupant = current_occupant
   end
 

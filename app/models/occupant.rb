@@ -1,7 +1,7 @@
 class Occupant < ApplicationRecord
   belongs_to :establishment
 
-  has_many :goods
+  has_many :goods, dependent: :destroy
 
   has_secure_password
 

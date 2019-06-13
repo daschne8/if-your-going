@@ -1,7 +1,7 @@
 class Good < ApplicationRecord
   belongs_to :occupant
-  has_many :good_tags, dependent: :delete_all
-  has_many :tags, through: :good_tags, dependent: :delete_all
+  has_many :good_tags, dependent: :destroy
+  has_many :tags, through: :good_tags, dependent: :destroy
 
   accepts_nested_attributes_for :tags
 
