@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get "/auth/:provider/callback", to: "sessions#create"
+  get "/auth/:provider/callback", to: "sessions#create_git"
   #post ""
   get "/auth/failure", to: redirect('/')
   delete 'signout', to: 'sessions#destroy', as: 'signout'
@@ -25,9 +25,9 @@ Rails.application.routes.draw do
     resources :displays, only: [:index]
   end
   #
-  # get '/login', to: 'sessions#new'
-  # post '/login', to: 'sessions#create'
-  # post '/logout', to: 'sessions#destroy'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  post '/logout', to: 'sessions#destroy'
 
   #root 'sessions#new'
 
