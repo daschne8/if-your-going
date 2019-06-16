@@ -1,11 +1,14 @@
 class SessionsController < ApplicationController
 
   def create_git
-    user = User.from_omniauth(request.env["omniauth.auth"])
+    user = Occupant.from_omniauth(request.env["omniauth.auth"])
 
     if user.valid?
-      session[:user_id] = user.id
-      redirect_to request.env['omniauth.origin']
+      user.establishment = Establishment.first
+      user.name = user.username
+      user.save
+      session[:occupant_id] = user.id
+      redirect_to establishment_path(user.establishment) #request.env['omniauth.origin']
     end
   end
 

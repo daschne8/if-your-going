@@ -38,7 +38,13 @@ ActiveRecord::Schema.define(version: 2019_06_15_214247) do
   create_table "occupants", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
-    t.integer "establishment_id"
+    t.integer "establishment_id", default: 1
+    t.string "username"
+    t.string "avatar_url"
+    t.string "email"
+    t.string "uid"
+    t.string "provider"
+    t.string "oauth_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false

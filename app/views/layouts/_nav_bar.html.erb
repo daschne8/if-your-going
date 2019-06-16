@@ -9,7 +9,7 @@
   <% home_path = login_path %>
 <% end %>
 <%= link_to "Home", home_path %>
-
+<%= link_to "My Page", establishment_occupant_path(current_occupant.establishment,current_occupant) %>
 <% if logged_in? %>
   <%= link_to('Logout', logout_url, method: :post) %>
 <% else %>
